@@ -2,30 +2,41 @@ package service;
 
 import entities.Product;
 import entities.ProductCategory;
+import jakarta.enterprise.context.ApplicationScoped;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
+
+@ApplicationScoped
 public class WarehouseService {
 
-    public final List<Product> products;
+    private final List<Product> products = new ArrayList<>();
+   private final Lock lock = new ReentrantLock();
     //private int maxProductId = 0;
 
-    public WarehouseService() {
-        this.products = new ArrayList<>();
-    }
 
     public void addNewProduct(Product product) {
-        int productId = generateUniqueId();
-        product.setProductId(productId);
-        if (product.getName()== null || product.getName().isEmpty()) {
-            throw new IllegalArgumentException("product name cannot be empty");
+        lock.lock();
+        try {
+            int productId = generateUniqueId();
+            product.setProductId(productId);
+            if (product.getName()== null || product.getName().isEmpty()) {
+                throw new IllegalArgumentException("product name cannot be empty");
 
+            }
+
+            products.add(product);
+            System.out.println("Product successfully added");
+
+        }finally {
+            lock.unlock(); // release the lock
         }
 
-        products.add(product);
-        System.out.println("Product successfully added");
 
     }
 
@@ -34,28 +45,34 @@ public class WarehouseService {
     }
 
     public void editProduct(int productId, String name, int rating, ProductCategory category) {
-        Optional<Product> productToUpdate = getProductById(productId);
+        lock.lock();
 
-        if (productToUpdate.isPresent()) {
-            Product product = productToUpdate.get();
-            if (name != null && !name.isEmpty()) {
-                product.setName(name);
-            }
-            if (category != null) {
-                product.setProductCategory(category);
-            }
-            if (rating >= 0 && rating <= 10) {
-                product.setRating(rating);
+        try{
+            Optional<Product> productToUpdate = getProductById(productId);
+
+            if (productToUpdate.isPresent()) {
+                Product product = productToUpdate.get();
+                if (name != null && !name.isEmpty()) {
+                    product.setName(name);
+                }
+                if (category != null) {
+                    product.setProductCategory(category);
+                }
+                if (rating >= 0 && rating <= 10) {
+                    product.setRating(rating);
+                }
+
+                product.updateDateModified();
+                System.out.println("Product edited successfully");
+
+            } else {
+                throw new IllegalArgumentException("Product of ID " + productId + " not found");
             }
 
-            product.updateDateModified();
-            System.out.println("Product edited successfully");
 
-        } else {
-            throw new IllegalArgumentException("Product of ID " + productId + " not found");
+        }finally {
+            lock.unlock();
         }
-
-
 
     }
 

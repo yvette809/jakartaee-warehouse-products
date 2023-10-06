@@ -45,7 +45,10 @@
         <artifactId>junit-jupiter-engine</artifactId>
         <version>${junit.version}</version>
         <scope>test</scope>
-      </dependency>  </dependencies>
+      </dependency>
+      <!-- Other dependencies -->
+
+  </dependencies>
 
   <build>
     <plugins>

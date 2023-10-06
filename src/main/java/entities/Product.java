@@ -12,6 +12,8 @@ public class Product {
     private final LocalDateTime dateCreated;
     private LocalDateTime dateModified;
 
+
+
     public Product(String name, int rating, ProductCategory category) {
         setProductId(productId);
         this.name = name;
