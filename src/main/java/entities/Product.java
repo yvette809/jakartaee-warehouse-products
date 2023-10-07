@@ -1,13 +1,22 @@
 package entities;
 
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
+
 
 public class Product {
 
     private int productId;
+    @NotNull(message = "product  cannot be null")
+    @NotBlank(message = "Name is required")
+    @Size(min = 1,max=25, message = "product name must be between 1 and 25")
     private String name;
+
+    @NotNull(message = "rating cannot be null")
+    @Size(min = 1, max = 10 , message = "rating must be between 1 and 10")
     private int rating;
+    @NotNull(message = "category is required")
     private ProductCategory category;
     private final LocalDateTime dateCreated;
     private LocalDateTime dateModified;

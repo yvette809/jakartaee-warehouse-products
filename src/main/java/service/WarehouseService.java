@@ -25,11 +25,6 @@ public class WarehouseService {
         try {
             int productId = generateUniqueId();
             product.setProductId(productId);
-            if (product.getName()== null || product.getName().isEmpty()) {
-                throw new IllegalArgumentException("product name cannot be empty");
-
-            }
-
             products.add(product);
             System.out.println("Product successfully added");
 
