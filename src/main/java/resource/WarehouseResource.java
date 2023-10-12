@@ -3,18 +3,20 @@ package resource;
 import entities.Product;
 import entities.ProductCategory;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
+import jakarta.validation.ValidationException;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import service.MyException;
 import service.WarehouseService;
-
-import javax.validation.Valid;
-import javax.validation.ValidationException;
 import java.util.List;
 import java.util.Optional;
 
+
 @Path("/products")
 public class WarehouseResource {
+
 @Inject
      private  WarehouseService warehouseService;
 
@@ -23,7 +25,7 @@ public class WarehouseResource {
      public Response getAllProducts(){
         try{
             List<Product> products =  warehouseService.getAllProducts();
-            return Response.status(200).entity(products).build();
+            return Response.status(Response.Status.OK).entity(products).build();
 
         }catch(Exception e){
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occured while retriving products").build();
@@ -36,7 +38,11 @@ public class WarehouseResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response addNewProduct ( @Valid Product product){
         try{
+            if(product.getName()==null || product.getName().isEmpty()){
+               throw new MyException("product name cannot be empty or null");
+            }
             warehouseService.addNewProduct(product);
+
             return Response.status(Response.Status.CREATED).entity("product successfully added").build();
 
         }catch(ValidationException e){
@@ -52,35 +58,38 @@ public class WarehouseResource {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-     public Response getProductById(@PathParam("id") int productId){
-        Optional<Product> foundProduct =  warehouseService.getProductById(productId);
-        if(foundProduct.isPresent()){
-            return Response.status(Response.Status.ACCEPTED).entity(foundProduct).build();
-        }else{
-            return Response.status(Response.Status.NOT_FOUND).entity("product not found with ID: " + productId).build();
-        }
+    public Response getProductById(@PathParam("id") int productId) {
+        try {
 
+            Optional<Product> foundProduct = warehouseService.getProductById(productId);
+
+            if (foundProduct.isPresent()) {
+                return Response.status(Response.Status.OK).entity(foundProduct.get()).build();
+            } else {
+                return Response.status(Response.Status.NOT_FOUND).entity("Product not found with ID: " + productId).build();
+            }
+        } catch (Exception e) {
+
+            //return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred: " + e.getMessage()).build();
+            throw new WebApplicationException("server error", Response.Status.INTERNAL_SERVER_ERROR);
+
+        }
     }
 
     @GET
-    @Path("/{category}")
+    @Path("/category/{category}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getProductsByCategory(@PathParam("category") ProductCategory category){
-        try{
+    public Response getProductsByCategory(@PathParam("category") ProductCategory category) {
+        try {
             List<Product> products = warehouseService.getProductsByCategory(category);
-            if(products!= null){
-                return Response.status(200).entity(products).build();
-            }else{
-                return Response.status(Response.Status.NOT_FOUND).entity("no products found for the given category: " + category).build();
+            if (!products.isEmpty()) {
+                return Response.status(Response.Status.OK).entity(products).build();
+            } else {
+                return Response.status(Response.Status.NOT_FOUND).entity("No products found for the given category: " + category).build();
             }
-
-        }catch(Exception e){
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occured while retriving products by category").build();
-
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while retrieving products by category").build();
         }
-
-
-
     }
 
 }

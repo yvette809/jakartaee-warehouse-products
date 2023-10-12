@@ -1,6 +1,6 @@
 package entities;
-
-import javax.validation.constraints.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -8,18 +8,28 @@ import java.util.Objects;
 public class Product {
 
     private int productId;
-    @NotNull(message = "product  cannot be null")
-    @NotBlank(message = "Name is required")
-    @Size(min = 1,max=25, message = "product name must be between 1 and 25")
+
+    @NotEmpty(message = "Empty names are not allowed")
     private String name;
 
-    @NotNull(message = "rating cannot be null")
-    @Size(min = 1, max = 10 , message = "rating must be between 1 and 10")
+    @Min( value = 1, message = "rating must not be  less than 1")
+    @Max( value = 10, message = "rating must not be greater than 10")
+
     private int rating;
     @NotNull(message = "category is required")
     private ProductCategory category;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private final LocalDateTime dateCreated;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateModified;
+
+
+
+    public Product() {
+        // Initialize any default values if needed
+        this.dateCreated = LocalDateTime.now();
+        this.dateModified = this.dateCreated;
+    }
 
 
 
@@ -31,6 +41,7 @@ public class Product {
         this.dateCreated = LocalDateTime.now();
         this.dateModified = this.dateCreated;
     }
+
 
     public int getProductId() {
         return productId;
