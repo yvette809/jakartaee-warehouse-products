@@ -13,8 +13,11 @@ public class MyObjectMapperContextResolver implements ContextResolver<ObjectMapp
         this.mapper.registerModule(new JavaTimeModule());
         // Add your custom configurations here...
     }
+
+
     @Override
-    public ObjectMapper getContext(Class<?> type) {
+    public  ObjectMapper getContext(Class<?> type) {
         return mapper;
     }
+
 }

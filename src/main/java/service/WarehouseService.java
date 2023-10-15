@@ -26,8 +26,8 @@ public class WarehouseService {
     public void addNewProduct(Product product) {
         lock.lock();
         try {
-            int productId = generateUniqueId();
-            product.setProductId(productId);
+            //int productId = generateUniqueId();
+            //product.setProductId(productId);
             products.add(product);
             System.out.println("Product successfully added");
 
@@ -38,9 +38,7 @@ public class WarehouseService {
 
     }
 
-    private int generateUniqueId(){
-        return products.size() + 1;
-    }
+
 
     public void editProduct(int productId, String name, int rating, ProductCategory category) {
         lock.lock();

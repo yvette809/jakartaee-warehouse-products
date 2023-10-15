@@ -9,15 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="refactored the endpoints for proper error handling">
-      <change afterPath="$PROJECT_DIR$/src/main/java/contextResolver/MyObjectMapperContextResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" afterDir="false" />
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="completed first test and refactored the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/warehouse/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/warehouse/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/contextResolver/MyObjectMapperContextResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/contextResolver/MyObjectMapperContextResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,24 +47,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/chubb/Documents/warehouse&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/chubb/Documents/warehouse",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.WarehouseResourceTest">
+}]]></component>
+  <component name="RunManager" selected="JUnit.WarehouseResourceTest.getProductsByCategoryReturnsStatus200AndProducts">
     <configuration name="JBoss/WildFly 30.0.0.Beta1" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 30.0.0.Beta1" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/warehouse-1.0-SNAPSHOT" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
@@ -122,7 +118,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseResourceTest.getProductsReturnsStatus200" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseResourceTest.addProductReturnsStatus201AndNewProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="warehouse" />
       <extension name="coverage">
         <pattern>
@@ -132,7 +128,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="resource" />
       <option name="MAIN_CLASS_NAME" value="resource.WarehouseResourceTest" />
-      <option name="METHOD_NAME" value="getProductsReturnsStatus200" />
+      <option name="METHOD_NAME" value="addProductReturnsStatus201AndNewProduct" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WarehouseResourceTest.getProductByIdReturnsStatus200AndProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="warehouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="resource.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="resource" />
+      <option name="MAIN_CLASS_NAME" value="resource.WarehouseResourceTest" />
+      <option name="METHOD_NAME" value="getProductByIdReturnsStatus200AndProduct" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WarehouseResourceTest.getProductsByCategoryReturnsStatus200AndProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="warehouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="resource.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="resource" />
+      <option name="MAIN_CLASS_NAME" value="resource.WarehouseResourceTest" />
+      <option name="METHOD_NAME" value="getProductsByCategoryReturnsStatus200AndProducts" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,9 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WarehouseResourceTest.getProductsByCategoryReturnsStatus200AndProducts" />
+        <item itemvalue="JUnit.WarehouseResourceTest.addProductReturnsStatus201AndNewProduct" />
+        <item itemvalue="JUnit.WarehouseResourceTest.getProductByIdReturnsStatus200AndProduct" />
         <item itemvalue="JUnit.WarehouseResourceTest" />
         <item itemvalue="JUnit.WarehouseResourceTest.getProductsReturnsStatus200AndProducts" />
-        <item itemvalue="JUnit.WarehouseResourceTest.getProductsReturnsStatus200" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +206,7 @@
       <workItem from="1696700544806" duration="8771000" />
       <workItem from="1696838088378" duration="1462000" />
       <workItem from="1696926716807" duration="53106000" />
-      <workItem from="1697375769399" duration="11852000" />
+      <workItem from="1697375769399" duration="22392000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -210,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697091918023</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="completed first test and refactored the code">
+      <option name="closed" value="true" />
+      <created>1697388464957</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697388464959</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,17 +259,7 @@
     <MESSAGE value="get all products,getproductById and getProductByID endpoints included" />
     <MESSAGE value="included bean validation and added response codes including error handling" />
     <MESSAGE value="refactored the endpoints for proper error handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored the endpoints for proper error handling" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="completed first test and refactored the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed first test and refactored the code" />
   </component>
 </project>
