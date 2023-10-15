@@ -17,6 +17,9 @@ public class WarehouseService {
 
     private final List<Product> products = new ArrayList<>();
    private final Lock lock = new ReentrantLock();
+
+    public WarehouseService() {
+    }
     //private int maxProductId = 0;
 
 
@@ -73,7 +76,7 @@ public class WarehouseService {
 
     // get all products
     public List<Product> getAllProducts() {
-        return new ArrayList<>(products);
+        return products;
     }
 
     // get product by id

@@ -17,8 +17,16 @@ import java.util.Optional;
 @Path("/products")
 public class WarehouseResource {
 
-@Inject
-     private  WarehouseService warehouseService;
+
+    private final WarehouseService warehouseService;
+
+    @Inject
+    public WarehouseResource(WarehouseService warehouseService) {
+        this.warehouseService = warehouseService;
+    }
+    public WarehouseResource() {
+        this.warehouseService = new WarehouseService();
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -27,8 +35,9 @@ public class WarehouseResource {
             List<Product> products =  warehouseService.getAllProducts();
             return Response.status(Response.Status.OK).entity(products).build();
 
-        }catch(Exception e){
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occured while retriving products").build();
+        }catch(MyException e){
+           // return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occured while retriving products").build();
+            throw e;
         }
 
     }
@@ -66,12 +75,13 @@ public class WarehouseResource {
             if (foundProduct.isPresent()) {
                 return Response.status(Response.Status.OK).entity(foundProduct.get()).build();
             } else {
-                return Response.status(Response.Status.NOT_FOUND).entity("Product not found with ID: " + productId).build();
+                //return Response.status(Response.Status.NOT_FOUND).entity("Product not found with ID: " + productId).build();
+                throw new MyException("Invalid id " + productId);
             }
         } catch (Exception e) {
 
-            //return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred: " + e.getMessage()).build();
-            throw new WebApplicationException("server error", Response.Status.INTERNAL_SERVER_ERROR);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred: " + e.getMessage()).build();
+
 
         }
     }

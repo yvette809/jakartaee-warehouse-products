@@ -9,15 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="included bean validation and added response codes including error handling">
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/MyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/MyExceptionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="refactored the endpoints for proper error handling">
+      <change afterPath="$PROJECT_DIR$/src/main/java/contextResolver/MyObjectMapperContextResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/warehouse/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/warehouse/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,9 +67,10 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.WarehouseResourceTest">
     <configuration name="JBoss/WildFly 30.0.0.Beta1" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 30.0.0.Beta1" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/warehouse-1.0-SNAPSHOT" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="warehouse:war exploded">
           <settings />
@@ -106,6 +107,60 @@
         </option>
       </method>
     </configuration>
+    <configuration name="WarehouseResourceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="warehouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="resource.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="resource" />
+      <option name="MAIN_CLASS_NAME" value="resource.WarehouseResourceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WarehouseResourceTest.getProductsReturnsStatus200" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="warehouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="resource.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="resource" />
+      <option name="MAIN_CLASS_NAME" value="resource.WarehouseResourceTest" />
+      <option name="METHOD_NAME" value="getProductsReturnsStatus200" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WarehouseResourceTest.getProductsReturnsStatus200AndProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="warehouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="resource.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="resource" />
+      <option name="MAIN_CLASS_NAME" value="resource.WarehouseResourceTest" />
+      <option name="METHOD_NAME" value="getProductsReturnsStatus200AndProducts" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.WarehouseResourceTest" />
+        <item itemvalue="JUnit.WarehouseResourceTest.getProductsReturnsStatus200AndProducts" />
+        <item itemvalue="JUnit.WarehouseResourceTest.getProductsReturnsStatus200" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -120,7 +175,8 @@
       <workItem from="1696700186002" duration="341000" />
       <workItem from="1696700544806" duration="8771000" />
       <workItem from="1696838088378" duration="1462000" />
-      <workItem from="1696926716807" duration="22669000" />
+      <workItem from="1696926716807" duration="53106000" />
+      <workItem from="1697375769399" duration="11852000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -146,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696706729044</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactored the endpoints for proper error handling">
+      <option name="closed" value="true" />
+      <created>1697091918023</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697091918023</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +220,18 @@
     <MESSAGE value="created a new project and transferred files from old project" />
     <MESSAGE value="get all products,getproductById and getProductByID endpoints included" />
     <MESSAGE value="included bean validation and added response codes including error handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="included bean validation and added response codes including error handling" />
+    <MESSAGE value="refactored the endpoints for proper error handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored the endpoints for proper error handling" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

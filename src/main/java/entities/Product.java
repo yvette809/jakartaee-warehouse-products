@@ -1,5 +1,6 @@
 package entities;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -18,9 +19,11 @@ public class Product {
     private int rating;
     @NotNull(message = "category is required")
     private ProductCategory category;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,  pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private final LocalDateTime dateCreated;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dateModified;
 
 
@@ -59,11 +62,15 @@ public class Product {
     public ProductCategory getCategory() {
         return category;
     }
-
+    @JsonIgnore
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,  pattern = "yyyy-MM-dd'T'HH:mm:ss")
     public LocalDateTime getDateCreated() {
         return dateCreated;
     }
-
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,  pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @JsonIgnore
     public LocalDateTime getDateModified() {
         return dateModified;
     }
@@ -108,13 +115,17 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "{" +
                 "productId=" + productId +
-                ", name='" + name + '\'' +
+                ", name=" + name +  // Remove single quotes
                 ", rating=" + rating +
                 ", category=" + category +
                 ", dateCreated=" + dateCreated +
                 ", dateModified=" + dateModified +
                 '}';
+
     }
+
+
+
 }
