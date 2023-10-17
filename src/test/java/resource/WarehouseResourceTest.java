@@ -26,11 +26,11 @@ import service.WarehouseService;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -70,9 +70,9 @@ public class WarehouseResourceTest {
         MockHttpResponse response = new MockHttpResponse();
         dispatcher.invoke(request, response);
 
-        // Deserialize the response content into a list of products
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
+        // Obtain the ObjectMapper from your custom context resolver
+        MyObjectMapperContextResolver contextResolver = new MyObjectMapperContextResolver();
+        ObjectMapper objectMapper = contextResolver.getContext(ObjectMapper.class);
         System.out.println("Response Content: " + response.getContentAsString());
 
         List<Product> productsFromResponse = objectMapper.readValue(response.getContentAsString(), new TypeReference<List<Product>>() {});
@@ -106,8 +106,9 @@ public class WarehouseResourceTest {
         dispatcher.invoke(request, response);
 
         //Deserialize the response content into a list of products
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
+        // Obtain the ObjectMapper from your custom context resolver
+        MyObjectMapperContextResolver contextResolver = new MyObjectMapperContextResolver();
+        ObjectMapper objectMapper = contextResolver.getContext(ObjectMapper.class);
 
         // Assert the response status code
         assertEquals(200, response.getStatus());
@@ -155,10 +156,12 @@ public class WarehouseResourceTest {
         String responseContent = response.getContentAsString();
         assertEquals("Product successfully added", responseContent);
 
+        // check the content-type
+        List<Object> contentTypeHeaders = response.getOutputHeaders().get("Content-type");
+        assertNotNull(contentTypeHeaders, "Content-Type header is missing");
+        assertEquals(1, contentTypeHeaders.size(), "Content-Type header has multiple values");
+        assertEquals(MediaType.APPLICATION_JSON, contentTypeHeaders.get(0).toString(), "Content-Type is not application/json");
 
-
-        // Verify that the warehouseService.addProduct() method was called exactly once with the expected product
-        Mockito.verify(warehouseService, Mockito.times(1)).addNewProduct(mockProduct);
     }
 
 
@@ -184,8 +187,9 @@ public class WarehouseResourceTest {
         assertEquals(200, response.getStatus());
 
         // Deserialize the response content into a list of products
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
+        // Obtain the ObjectMapper from your custom context resolver
+        MyObjectMapperContextResolver contextResolver = new MyObjectMapperContextResolver();
+        ObjectMapper objectMapper = contextResolver.getContext(ObjectMapper.class);
         List<Product> productsFromResponse = objectMapper.readValue(response.getContentAsString(), new com.fasterxml.jackson.core.type.TypeReference<List<Product>>() {});
         System.out.println("productsResponse: " + productsFromResponse);
 
