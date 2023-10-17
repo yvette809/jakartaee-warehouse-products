@@ -52,7 +52,7 @@ public class WarehouseResource {
             }
             warehouseService.addNewProduct(product);
 
-            return Response.status(Response.Status.CREATED).entity("product successfully added").build();
+            return Response.status(Response.Status.CREATED).entity("Product successfully added").build();
 
         }catch(ValidationException e){
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();

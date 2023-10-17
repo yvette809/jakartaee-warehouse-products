@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="completed first test and refactored the code">
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="completed tests for getProductById and getProductsByCategory">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/contextResolver/MyObjectMapperContextResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/contextResolver/MyObjectMapperContextResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,23 +45,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/chubb/Documents/warehouse",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/chubb/Documents/warehouse&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.WarehouseResourceTest.getProductsByCategoryReturnsStatus200AndProducts">
+}</component>
+  <component name="RunManager" selected="JUnit.WarehouseResourceTest.addProductReturnsStatus201AndNewProduct">
     <configuration name="JBoss/WildFly 30.0.0.Beta1" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 30.0.0.Beta1" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/warehouse-1.0-SNAPSHOT" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
@@ -184,8 +182,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WarehouseResourceTest.getProductsByCategoryReturnsStatus200AndProducts" />
         <item itemvalue="JUnit.WarehouseResourceTest.addProductReturnsStatus201AndNewProduct" />
+        <item itemvalue="JUnit.WarehouseResourceTest.getProductsByCategoryReturnsStatus200AndProducts" />
         <item itemvalue="JUnit.WarehouseResourceTest.getProductByIdReturnsStatus200AndProduct" />
         <item itemvalue="JUnit.WarehouseResourceTest" />
         <item itemvalue="JUnit.WarehouseResourceTest.getProductsReturnsStatus200AndProducts" />
@@ -206,7 +204,10 @@
       <workItem from="1696700544806" duration="8771000" />
       <workItem from="1696838088378" duration="1462000" />
       <workItem from="1696926716807" duration="53106000" />
-      <workItem from="1697375769399" duration="22392000" />
+      <workItem from="1697375769399" duration="23059000" />
+      <workItem from="1697538331608" duration="2483000" />
+      <workItem from="1697565432197" duration="698000" />
+      <workItem from="1697566787406" duration="4454000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -248,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697388464959</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="completed tests for getProductById and getProductsByCategory">
+      <option name="closed" value="true" />
+      <created>1697403136709</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697403136710</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +269,7 @@
     <MESSAGE value="included bean validation and added response codes including error handling" />
     <MESSAGE value="refactored the endpoints for proper error handling" />
     <MESSAGE value="completed first test and refactored the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed first test and refactored the code" />
+    <MESSAGE value="completed tests for getProductById and getProductsByCategory" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed tests for getProductById and getProductsByCategory" />
   </component>
 </project>

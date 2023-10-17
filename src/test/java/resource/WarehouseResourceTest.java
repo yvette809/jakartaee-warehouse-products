@@ -134,9 +134,13 @@ public class WarehouseResourceTest {
         // Assuming the addNewProduct method returns void
         Mockito.doNothing().when(warehouseService).addNewProduct(Mockito.any(Product.class));
 
+        // Obtain the ObjectMapper from your custom context resolver
+        MyObjectMapperContextResolver contextResolver = new MyObjectMapperContextResolver();
+        ObjectMapper objectMapper = contextResolver.getContext(ObjectMapper.class);
+
         // Create a mock HTTP request to add a new product
         MockHttpRequest request = MockHttpRequest.post("/products");
-        String productJson = new ObjectMapper().writeValueAsString(mockProduct); // Serialize the mockProduct to JSON
+        String productJson = objectMapper.writeValueAsString(mockProduct); // Serialize the mockProduct to JSON
         request.content(productJson.getBytes());
         request.contentType(MediaType.APPLICATION_JSON);
         MockHttpResponse response = new MockHttpResponse();
@@ -147,17 +151,16 @@ public class WarehouseResourceTest {
         // Assert the response status code
         assertEquals(201, response.getStatus());
 
-        // Deserialize the response content into a product
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        Product productFromResponse = objectMapper.readValue(response.getContentAsString(), new TypeReference<Product>() {});
+        // Check the response content for success message
+        String responseContent = response.getContentAsString();
+        assertEquals("Product successfully added", responseContent);
 
-        // Assert the deserialized product against the expected product
-        assertEquals(mockProduct, productFromResponse);
+
 
         // Verify that the warehouseService.addProduct() method was called exactly once with the expected product
         Mockito.verify(warehouseService, Mockito.times(1)).addNewProduct(mockProduct);
     }
+
 
     @Test
     public void getProductsByCategoryReturnsStatus200AndProducts() throws Exception {
@@ -184,6 +187,7 @@ public class WarehouseResourceTest {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         List<Product> productsFromResponse = objectMapper.readValue(response.getContentAsString(), new com.fasterxml.jackson.core.type.TypeReference<List<Product>>() {});
+        System.out.println("productsResponse: " + productsFromResponse);
 
         // Assert the deserialized products against the expected products
         assertEquals(mockProducts, productsFromResponse);
