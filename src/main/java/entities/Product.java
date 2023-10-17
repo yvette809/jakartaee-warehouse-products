@@ -1,7 +1,9 @@
 package entities;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.*;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -13,19 +15,18 @@ public class Product {
     @NotEmpty(message = "Empty names are not allowed")
     private String name;
 
-    @Min( value = 1, message = "rating must not be  less than 1")
-    @Max( value = 10, message = "rating must not be greater than 10")
+    @Min(value = 1, message = "rating must not be  less than 1")
+    @Max(value = 10, message = "rating must not be greater than 10")
 
     private int rating;
     @NotNull(message = "category is required")
     private ProductCategory category;
     //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,  pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private final LocalDateTime dateCreated;
     //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dateModified;
-
 
 
     public Product() {
@@ -35,8 +36,7 @@ public class Product {
     }
 
 
-
-    public Product(int ProductId,String name, int rating, ProductCategory category) {
+    public Product(int ProductId, String name, int rating, ProductCategory category) {
         setProductId(productId);
         this.name = name;
         this.rating = rating;
@@ -62,14 +62,16 @@ public class Product {
     public ProductCategory getCategory() {
         return category;
     }
+
     @JsonIgnore
     //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,  pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     public LocalDateTime getDateCreated() {
         return dateCreated;
     }
+
     //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,  pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @JsonIgnore
     public LocalDateTime getDateModified() {
         return dateModified;
@@ -125,7 +127,6 @@ public class Product {
                 '}';
 
     }
-
 
 
 }

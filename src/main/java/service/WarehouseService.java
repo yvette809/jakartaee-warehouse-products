@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class WarehouseService {
 
     private final List<Product> products = new ArrayList<>();
-   private final Lock lock = new ReentrantLock();
+    private final Lock lock = new ReentrantLock();
 
     public WarehouseService() {
     }
@@ -31,7 +31,7 @@ public class WarehouseService {
             products.add(product);
             System.out.println("Product successfully added");
 
-        }finally {
+        } finally {
             lock.unlock(); // release the lock
         }
 
@@ -39,11 +39,10 @@ public class WarehouseService {
     }
 
 
-
     public void editProduct(int productId, String name, int rating, ProductCategory category) {
         lock.lock();
 
-        try{
+        try {
             Optional<Product> productToUpdate = getProductById(productId);
 
             if (productToUpdate.isPresent()) {
@@ -66,7 +65,7 @@ public class WarehouseService {
             }
 
 
-        }finally {
+        } finally {
             lock.unlock();
         }
 
@@ -85,17 +84,17 @@ public class WarehouseService {
     }
 
     // get products by category
-    public List<Product> getProductsByCategory(ProductCategory category){
-        return  getAllProducts().stream()
-                .filter(pdt->pdt.getCategory()== category)
-                .sorted((p1,p2)->p1.getName().compareToIgnoreCase(p2.getName()))
+    public List<Product> getProductsByCategory(ProductCategory category) {
+        return getAllProducts().stream()
+                .filter(pdt -> pdt.getCategory() == category)
+                .sorted((p1, p2) -> p1.getName().compareToIgnoreCase(p2.getName()))
                 .collect(Collectors.toList());
     }
 
     // get all products created after a given date. New products then last
 
-    public List<Product> getProductsCreatedAfterDateSortedByNewest(LocalDateTime date){
-        if(date==null){
+    public List<Product> getProductsCreatedAfterDateSortedByNewest(LocalDateTime date) {
+        if (date == null) {
             throw new IllegalArgumentException("Date Cannot be null");
         }
         return getAllProducts().stream()
@@ -109,7 +108,7 @@ public class WarehouseService {
 
     // get all products modified after creation
     public List<Product> getProductsModifiedAfterCreation() {
-        return  getAllProducts().stream()
+        return getAllProducts().stream()
                 .filter(product -> product.getDateModified().isAfter(product.getDateCreated()))
                 .collect(Collectors.toList());
 
@@ -142,7 +141,7 @@ public class WarehouseService {
 
     public List<Product> getProductsRatingCreatedThisMonthSortedByDate() {
         LocalDateTime currentDate = LocalDateTime.now();
-        LocalDateTime firstDayOfMonth = LocalDateTime.of(currentDate.getYear(), currentDate.getMonth(), 1,0,0);
+        LocalDateTime firstDayOfMonth = LocalDateTime.of(currentDate.getYear(), currentDate.getMonth(), 1, 0, 0);
         LocalDateTime endOfMonth = LocalDateTime.of(currentDate.getYear(), currentDate.getMonth(), currentDate.getMonth().maxLength(), 23, 59);
 
         return getAllProducts().stream()
@@ -154,7 +153,6 @@ public class WarehouseService {
                 .sorted(Comparator.comparing(Product::getDateModified).reversed())
                 .collect(Collectors.toList());
     }
-
 
 
 }

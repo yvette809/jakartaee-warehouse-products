@@ -40,8 +40,9 @@ public class WarehouseResourceTest {
     @Mock
     WarehouseService warehouseService;
     Dispatcher dispatcher;
+
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
 
         dispatcher = MockDispatcherFactory.createDispatcher();
         var warehouseResource = new WarehouseResource(warehouseService);
@@ -54,36 +55,38 @@ public class WarehouseResourceTest {
         dispatcher.getProviderFactory().registerProvider(MyObjectMapperContextResolver.class);
     }
 
+    private ObjectMapper getObjectMapper() {
+        MyObjectMapperContextResolver contextResolver = new MyObjectMapperContextResolver();
+        return contextResolver.getContext(ObjectMapper.class);
+    }
+
 
     @Test
     public void getProductsReturnsStatus200AndProducts() throws Exception {
 
 
         // Create a mock list of products
-        List<Product> mockProducts = List.of(new Product(1,"iphone",6,ProductCategory.ELECTRONICS),new Product(2,"shirt",8,ProductCategory.CLOTHING));
+        List<Product> mockProducts = List.of(new Product(1, "iphone", 6, ProductCategory.ELECTRONICS), new Product(2, "shirt", 8, ProductCategory.CLOTHING));
 
         // Use Mockito to mock the service's behavior
-       // Mockito.when(warehouseService.getAllProducts()).thenAnswer(invocation -> mockProducts);
+
         Mockito.when(warehouseService.getAllProducts()).thenReturn(mockProducts);
 
         MockHttpRequest request = MockHttpRequest.get("/products");
         MockHttpResponse response = new MockHttpResponse();
         dispatcher.invoke(request, response);
 
-        // Obtain the ObjectMapper from your custom context resolver
-        MyObjectMapperContextResolver contextResolver = new MyObjectMapperContextResolver();
-        ObjectMapper objectMapper = contextResolver.getContext(ObjectMapper.class);
-        System.out.println("Response Content: " + response.getContentAsString());
+        // serialise object
+        ObjectMapper objectMapper = getObjectMapper();
 
-        List<Product> productsFromResponse = objectMapper.readValue(response.getContentAsString(), new TypeReference<List<Product>>() {});
+        List<Product> productsFromResponse = objectMapper.readValue(response.getContentAsString(), new TypeReference<List<Product>>() {
+        });
         System.out.println("Products from Response: " + productsFromResponse);
 
         // Assert the response status code
         assertEquals(200, response.getStatus());
 
         // Assert the deserialized products against the expected products
-        System.out.println("mockproducts: " + mockProducts);
-        System.out.println("productsFromResponse: " + productsFromResponse);
         assertEquals(mockProducts, productsFromResponse);
         // Verify that the warehouseService.getAllProducts() method was called exactly once
         Mockito.verify(warehouseService, Mockito.times(1)).getAllProducts();
@@ -105,17 +108,16 @@ public class WarehouseResourceTest {
         // Perform the request and capture the response
         dispatcher.invoke(request, response);
 
-        //Deserialize the response content into a list of products
-        // Obtain the ObjectMapper from your custom context resolver
-        MyObjectMapperContextResolver contextResolver = new MyObjectMapperContextResolver();
-        ObjectMapper objectMapper = contextResolver.getContext(ObjectMapper.class);
+        // serialise object
+        ObjectMapper objectMapper = getObjectMapper();
 
         // Assert the response status code
         assertEquals(200, response.getStatus());
 
 
         // Deserialize the response content into a product
-        Product productFromResponse = objectMapper.readValue(response.getContentAsString(), new TypeReference<Product>() {});
+        Product productFromResponse = objectMapper.readValue(response.getContentAsString(), new TypeReference<Product>() {
+        });
 
         System.out.println("productResponse: " + productFromResponse);
 
@@ -135,9 +137,8 @@ public class WarehouseResourceTest {
         // Assuming the addNewProduct method returns void
         Mockito.doNothing().when(warehouseService).addNewProduct(Mockito.any(Product.class));
 
-        // Obtain the ObjectMapper from your custom context resolver
-        MyObjectMapperContextResolver contextResolver = new MyObjectMapperContextResolver();
-        ObjectMapper objectMapper = contextResolver.getContext(ObjectMapper.class);
+        //serialise object
+        ObjectMapper objectMapper = getObjectMapper();
 
         // Create a mock HTTP request to add a new product
         MockHttpRequest request = MockHttpRequest.post("/products");
@@ -186,11 +187,10 @@ public class WarehouseResourceTest {
         // Assert the response status code
         assertEquals(200, response.getStatus());
 
-        // Deserialize the response content into a list of products
-        // Obtain the ObjectMapper from your custom context resolver
-        MyObjectMapperContextResolver contextResolver = new MyObjectMapperContextResolver();
-        ObjectMapper objectMapper = contextResolver.getContext(ObjectMapper.class);
-        List<Product> productsFromResponse = objectMapper.readValue(response.getContentAsString(), new com.fasterxml.jackson.core.type.TypeReference<List<Product>>() {});
+        // serialise object
+        ObjectMapper objectMapper = getObjectMapper();
+        List<Product> productsFromResponse = objectMapper.readValue(response.getContentAsString(), new com.fasterxml.jackson.core.type.TypeReference<List<Product>>() {
+        });
         System.out.println("productsResponse: " + productsFromResponse);
 
         // Assert the deserialized products against the expected products

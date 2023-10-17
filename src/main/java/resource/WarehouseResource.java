@@ -10,6 +10,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import service.MyException;
 import service.WarehouseService;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -24,19 +25,20 @@ public class WarehouseResource {
     public WarehouseResource(WarehouseService warehouseService) {
         this.warehouseService = warehouseService;
     }
+
     public WarehouseResource() {
         this.warehouseService = new WarehouseService();
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-     public Response getAllProducts(){
-        try{
-            List<Product> products =  warehouseService.getAllProducts();
+    public Response getAllProducts() {
+        try {
+            List<Product> products = warehouseService.getAllProducts();
             return Response.status(Response.Status.OK).entity(products).build();
 
-        }catch(MyException e){
-           // return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occured while retriving products").build();
+        } catch (MyException e) {
+            // return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occured while retriving products").build();
             throw e;
         }
 
@@ -45,21 +47,20 @@ public class WarehouseResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addNewProduct ( @Valid Product product){
-        try{
-            if(product.getName()==null || product.getName().isEmpty()){
-               throw new MyException("product name cannot be empty or null");
+    public Response addNewProduct(@Valid Product product) {
+        try {
+            if (product.getName() == null || product.getName().isEmpty()) {
+                throw new MyException("product name cannot be empty or null");
             }
             warehouseService.addNewProduct(product);
 
             return Response.status(Response.Status.CREATED).entity("Product successfully added").build();
 
-        }catch(ValidationException e){
+        } catch (ValidationException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
 
-        }
-        catch (Exception e){
-            return  Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while adding the products").build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while adding the products").build();
         }
 
     }
