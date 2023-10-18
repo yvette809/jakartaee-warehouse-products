@@ -9,14 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="refactored the tets">
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="code formatted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/contextResolver/MyObjectMapperContextResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/contextResolver/MyObjectMapperContextResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/MyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/MyException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +77,39 @@
         <option name="CREDENTIAL_ALIAS" />
       </server-settings>
       <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="61356" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -211,7 +238,7 @@
       <workItem from="1697375769399" duration="23059000" />
       <workItem from="1697538331608" duration="2483000" />
       <workItem from="1697565432197" duration="698000" />
-      <workItem from="1697566787406" duration="7299000" />
+      <workItem from="1697566787406" duration="14047000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -277,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697574285614</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="code formatted">
+      <option name="closed" value="true" />
+      <created>1697575841868</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697575841868</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,6 +327,7 @@
     <MESSAGE value="completed tests for getProductById and getProductsByCategory" />
     <MESSAGE value="fixed the addProductTest" />
     <MESSAGE value="refactored the tets" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored the tets" />
+    <MESSAGE value="code formatted" />
+    <option name="LAST_COMMIT_MESSAGE" value="code formatted" />
   </component>
 </project>
