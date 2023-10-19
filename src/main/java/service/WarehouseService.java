@@ -20,14 +20,14 @@ public class WarehouseService {
 
     public WarehouseService() {
     }
-    //private int maxProductId = 0;
+    private int maxProductId = 0;
 
 
     public void addNewProduct(Product product) {
         lock.lock();
         try {
-            //int productId = generateUniqueId();
-            //product.setProductId(productId);
+            int productId = generateUniqueId();
+            product.setProductId(productId);
             products.add(product);
             System.out.println("Product successfully added");
 
@@ -37,6 +37,18 @@ public class WarehouseService {
 
 
     }
+
+    private int generateUniqueId() {
+        // Find the maximum product ID in the list of products
+        int maxProductId = products.stream()
+                .map(Product::getProductId)
+                .max(Integer::compareTo)
+                .orElse(0); // If the list is empty, start with 0
+
+        // Increment the maximum product ID to generate a new unique ID
+        return maxProductId + 1;
+    }
+
 
 
     public void editProduct(int productId, String name, int rating, ProductCategory category) {

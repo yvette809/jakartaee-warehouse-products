@@ -66,7 +66,7 @@ public class WarehouseResourceTest {
 
 
         // Create a mock list of products
-        List<Product> mockProducts = List.of(new Product(1, "iphone", 6, ProductCategory.ELECTRONICS), new Product(2, "shirt", 8, ProductCategory.CLOTHING));
+        List<Product> mockProducts = List.of(new Product( "iphone", 6, ProductCategory.ELECTRONICS), new Product( "shirt", 8, ProductCategory.CLOTHING));
 
         // Use Mockito to mock the service's behavior
 
@@ -96,7 +96,7 @@ public class WarehouseResourceTest {
     @Test
     public void getProductByIdReturnsStatus200AndProduct() throws Exception {
         // Create a mock product
-        Product mockProduct = new Product(1, "iphone", 6, ProductCategory.ELECTRONICS);
+        Product mockProduct = new Product( "iphone", 6, ProductCategory.ELECTRONICS);
 
         // Configure the behavior of the warehouseService mock for getProductById
         Mockito.when(warehouseService.getProductById(1)).thenReturn(Optional.of(mockProduct));
@@ -131,7 +131,7 @@ public class WarehouseResourceTest {
     @Test
     public void addProductReturnsStatus201AndNewProduct() throws Exception {
         // Create a mock product to be added
-        Product mockProduct = new Product(1, "iphone", 6, ProductCategory.ELECTRONICS);
+        Product mockProduct = new Product( "iphone", 6, ProductCategory.ELECTRONICS);
 
         // Configure the behavior of the warehouseService mock to handle product addition
         // Assuming the addNewProduct method returns void
@@ -170,8 +170,8 @@ public class WarehouseResourceTest {
     public void getProductsByCategoryReturnsStatus200AndProducts() throws Exception {
         // Create a mock list of products for a specific category
         List<Product> mockProducts = List.of(
-                new Product(1, "iphone", 6, ProductCategory.ELECTRONICS),
-                new Product(2, "laptop", 10, ProductCategory.ELECTRONICS)
+                new Product( "iphone", 6, ProductCategory.ELECTRONICS),
+                new Product( "laptop", 10, ProductCategory.ELECTRONICS)
         );
 
         // Configure the behavior of the warehouseService mock to return products for a specific category

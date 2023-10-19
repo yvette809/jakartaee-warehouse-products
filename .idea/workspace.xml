@@ -9,8 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="code formatted">
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="created a Dockerfile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/WarehouseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +67,7 @@
   <component name="RunManager" selected="JUnit.WarehouseResourceTest.getProductByIdReturnsStatus200AndProduct">
     <configuration name="JBoss/WildFly 30.0.0.Beta1" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 30.0.0.Beta1" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/warehouse-1.0-SNAPSHOT" />
-      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="warehouse:war exploded">
           <settings />
@@ -238,7 +243,7 @@
       <workItem from="1697375769399" duration="23059000" />
       <workItem from="1697538331608" duration="2483000" />
       <workItem from="1697565432197" duration="698000" />
-      <workItem from="1697566787406" duration="14047000" />
+      <workItem from="1697566787406" duration="26694000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -312,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697575841868</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="created a Dockerfile">
+      <option name="closed" value="true" />
+      <created>1697657815372</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697657815372</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +341,22 @@
     <MESSAGE value="fixed the addProductTest" />
     <MESSAGE value="refactored the tets" />
     <MESSAGE value="code formatted" />
-    <option name="LAST_COMMIT_MESSAGE" value="code formatted" />
+    <MESSAGE value="created a Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="created a Dockerfile" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/resource/WarehouseResourceTest.java</url>
+          <line>64</line>
+          <properties class="resource.WarehouseResourceTest" method="getProductsReturnsStatus200AndProducts">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
