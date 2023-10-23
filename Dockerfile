@@ -1,6 +1,6 @@
 # Use the bitnami/wildfly image as the base image
 FROM bitnami/wildfly:29.0.1
-ENV WILDFLY_USERNAME=user, WILDFLY_PASSWORD=password
+#ENV WILDFLY_USERNAME=user, WILDFLY_PASSWORD=password
 
 # Copy your Jakarta EE application (WAR) to the WildFly deployments directory
 #COPY target/warehouse-1.0-SNAPSHOT.war /opt/bitnami/wildfly/standalone/deployments/
