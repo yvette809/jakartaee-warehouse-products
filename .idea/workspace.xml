@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="changed file path again">
       <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +239,7 @@
       <workItem from="1697538331608" duration="2483000" />
       <workItem from="1697565432197" duration="698000" />
       <workItem from="1697566787406" duration="27023000" />
-      <workItem from="1698064014448" duration="19067000" />
+      <workItem from="1698064014448" duration="19426000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -426,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698088716355</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="changed file path again">
+      <option name="closed" value="true" />
+      <created>1698089785398</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1698089785400</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
