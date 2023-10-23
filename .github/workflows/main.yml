@@ -42,7 +42,7 @@ jobs:
       - name: Build and push Docker image
         run: |
          
-          cd ../..
+          cd ../../..
           docker build -t evebabe2006/server:latest .
           docker push evebabe2006/server:1.0
 

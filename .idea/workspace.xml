@@ -9,8 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="changed directory">
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="corrected file path">
       <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +240,7 @@
       <workItem from="1697538331608" duration="2483000" />
       <workItem from="1697565432197" duration="698000" />
       <workItem from="1697566787406" duration="27023000" />
-      <workItem from="1698064014448" duration="22974000" />
+      <workItem from="1698064014448" duration="23997000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -481,14 +482,21 @@
       <option name="project" value="LOCAL" />
       <updated>1698093238217</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="corrected file path">
+      <option name="closed" value="true" />
+      <created>1698093965868</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1698093965868</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created a new project and transferred files from old project" />
     <MESSAGE value="get all products,getproductById and getProductByID endpoints included" />
     <MESSAGE value="included bean validation and added response codes including error handling" />
     <MESSAGE value="refactored the endpoints for proper error handling" />
@@ -513,7 +521,8 @@
     <MESSAGE value="use latest tag" />
     <MESSAGE value="changed dockerfile" />
     <MESSAGE value="changed directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed directory" />
+    <MESSAGE value="corrected file path" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrected file path" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
