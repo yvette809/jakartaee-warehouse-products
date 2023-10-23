@@ -12,6 +12,8 @@ import jakarta.ws.rs.core.Response;
 import service.MyException;
 import service.WarehouseService;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -104,5 +106,37 @@ public class WarehouseResource {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("An error occurred while retrieving products by category").build();
         }
     }
+
+
+
+        @GET
+        @Path("/created-after/{date}")
+        @Produces(MediaType.APPLICATION_JSON)
+        public Response getProductsCreatedAfterDateSortedByNewest(@PathParam("date") String dateString) {
+            try {
+                // Parse the date string to LocalDateTime
+                LocalDateTime date = LocalDateTime.parse(dateString);
+
+                // Call the service method to retrieve and filter products
+                List<Product> products = warehouseService.getProductsCreatedAfterDateSortedByNewest(date);
+
+                return Response.ok(products).build();
+
+            } catch (IllegalArgumentException e) {
+                // Handle the case where the date parameter is not a valid LocalDateTime
+                return Response.status(Response.Status.BAD_REQUEST)
+                        .entity("Invalid date format: " + dateString)
+                        .build();
+
+            } catch (Exception e) {
+                // Handle other exceptions (e.g., internal server error)
+                return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                        .entity("An error occurred: " + e.getMessage())
+                        .build();
+            }
+        }
+
+
+
 
 }
