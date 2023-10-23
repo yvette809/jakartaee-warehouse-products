@@ -43,7 +43,7 @@ jobs:
         run: |
           
           cd $GITHUB_WORKSPACE
-          cat DockerFile
+          cat Dockerfile
           docker build -t evebabe2006/server:latest .
-          docker push evebabe2006/server:1.0
+          docker push evebabe2006/server:latest
 
