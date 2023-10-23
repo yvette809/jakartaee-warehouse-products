@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="fixed the path">
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="changed file path again">
       <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -240,7 +240,7 @@
       <workItem from="1697538331608" duration="2483000" />
       <workItem from="1697565432197" duration="698000" />
       <workItem from="1697566787406" duration="27023000" />
-      <workItem from="1698064014448" duration="18000000" />
+      <workItem from="1698064014448" duration="19067000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -418,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698087993815</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="changed file path again">
+      <option name="closed" value="true" />
+      <created>1698088716352</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1698088716355</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +454,8 @@
     <MESSAGE value="fixed mvn compiler version" />
     <MESSAGE value="updated the .yml file" />
     <MESSAGE value="fixed the path" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the path" />
+    <MESSAGE value="changed file path again" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed file path again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
