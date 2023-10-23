@@ -42,7 +42,6 @@ jobs:
       - name: Build and push Docker image
         run: |
           cd $GITHUB_WORKSPACE 
-          docker build -v .:/build .
-         
+          docker build -t evebabe2006/serverWithJava:1.0 .
           docker push evebabe2006/server:1.0
 
