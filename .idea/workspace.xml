@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="changed dockerfile">
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="changed directory">
       <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +239,7 @@
       <workItem from="1697538331608" duration="2483000" />
       <workItem from="1697565432197" duration="698000" />
       <workItem from="1697566787406" duration="27023000" />
-      <workItem from="1698064014448" duration="22438000" />
+      <workItem from="1698064014448" duration="22974000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -475,7 +473,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698092460754</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="changed directory">
+      <option name="closed" value="true" />
+      <created>1698093238217</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1698093238217</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,7 +512,8 @@
     <MESSAGE value="changed file path again" />
     <MESSAGE value="use latest tag" />
     <MESSAGE value="changed dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed dockerfile" />
+    <MESSAGE value="changed directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed directory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
