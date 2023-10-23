@@ -9,9 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="added github actions workflow">
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="included endpoint for getproductsCreatedAfterDate">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resource/WarehouseResource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +240,7 @@
       <workItem from="1697538331608" duration="2483000" />
       <workItem from="1697565432197" duration="698000" />
       <workItem from="1697566787406" duration="27023000" />
-      <workItem from="1698064014448" duration="6232000" />
+      <workItem from="1698064014448" duration="10765000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -346,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698065769483</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="included endpoint for getproductsCreatedAfterDate">
+      <option name="closed" value="true" />
+      <created>1698071850331</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698071850332</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +374,8 @@
     <MESSAGE value="made some changes" />
     <MESSAGE value="created new docker image" />
     <MESSAGE value="added github actions workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="added github actions workflow" />
+    <MESSAGE value="included endpoint for getproductsCreatedAfterDate" />
+    <option name="LAST_COMMIT_MESSAGE" value="included endpoint for getproductsCreatedAfterDate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
