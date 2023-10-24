@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="corrected file path">
+    <list default="true" id="b2d5e1bc-1d5b-4b3a-a0ae-14b625464b1a" name="Changes" comment="updated the .yml file">
       <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -241,7 +241,7 @@
       <workItem from="1697565432197" duration="698000" />
       <workItem from="1697566787406" duration="27023000" />
       <workItem from="1698064014448" duration="27293000" />
-      <workItem from="1698150855127" duration="410000" />
+      <workItem from="1698150855127" duration="1365000" />
     </task>
     <task id="LOCAL-00001" summary="created a new project and transferred files from old project">
       <option name="closed" value="true" />
@@ -523,7 +523,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698098444931</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="updated the .yml file">
+      <option name="closed" value="true" />
+      <created>1698151303478</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1698151303478</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,14 +556,14 @@
     <MESSAGE value="added distribution" />
     <MESSAGE value="updated the maven compiler" />
     <MESSAGE value="fixed mvn compiler version" />
-    <MESSAGE value="updated the .yml file" />
     <MESSAGE value="fixed the path" />
     <MESSAGE value="changed file path again" />
     <MESSAGE value="use latest tag" />
     <MESSAGE value="changed dockerfile" />
     <MESSAGE value="changed directory" />
     <MESSAGE value="corrected file path" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrected file path" />
+    <MESSAGE value="updated the .yml file" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated the .yml file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

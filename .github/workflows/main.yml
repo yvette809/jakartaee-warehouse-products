@@ -29,6 +29,10 @@ jobs:
       - name: Run unit tests
         run: mvn test
 
+      - name: Login to Docker Hub
+        run: |
+              docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+
       - name: Build Docker image
         run: |
           cd $GITHUB_WORKSPACE
